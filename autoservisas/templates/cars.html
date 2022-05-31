@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if all_my_cars %}
+<ul class="list-group">
+  {% for car in all_my_cars %}
+  <li class="list-group-item">
+    {{ car.marke }} {{ car.model }}; {{ car.year }} m. 
+    <a role="button" class="btn btn-danger float-right mr-1" href="{{ url_for('delete_car', id=car['id']) }}">Trinti</a>
+    <a role="button" class="btn btn-warning float-right mr-1" href="{{ url_for('edit_car', id=car['id']) }}">Redaguoti</a>
+    <a role="button" class="btn btn-info float-right mr-1" href="{{ url_for('car_failures', id=car['id']) }}">Gedimų istorija</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<a class="btn btn-primary" role="button" href="{{ url_for('new_car') }}">Naujas automobilis</a>
+<a class="btn btn-success" role="button" href="{{ url_for('new_failure') }}">Naujas gedimas</a>
+
+{% endblock content %}

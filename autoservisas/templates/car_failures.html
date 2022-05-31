@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ car.marke }} {{ car.model }} {{ car.year }}</h1>
+{% if all_car_failures %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Gedimas</th>
+      <th scope="col">Statusas</th>
+      <th scope="col">Kaina</th>
+    </tr>
+  </thead>
+  {% for failure in all_car_failures %}
+  <tr>
+    <td>{{ failure.description }}</td>
+    <td>{{ failure.status }}</td>
+    <td>{{ failure.price }}</td>
+  </tr>
+  {% endfor %} {% else %}
+  <ul class="list-group"><li class="list-group-item">Šis automobilis gedimų istorijos neturi</li></ul>
+  {% endif %}
+</table>
+
+{% endblock content %}

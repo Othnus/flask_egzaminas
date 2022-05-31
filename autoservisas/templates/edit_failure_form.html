@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if failure %}
+<h1>{{ car.marke }} {{ car.model }} {{ car.year }}</h1>
+{% endif %}
+<form method="post" action="#">
+  {{form.hidden_tag()}}
+  <div class="form-group">
+    {{form.status.label(class="form-control-label")}}
+    {% if failure %}
+        {{form.status(class="form-control", value=failure.status)}}
+    {% else %}
+      {{form.status(class="form-control")}}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{form.price.label(class="form-control-label")}}
+    {% if failure %}
+        {{form.price(class="form-control", value=failure.price)}}
+    {% else %}
+        {{form.price(class="form-control")}}
+    {% endif %}
+  </div>
+
+  {{form.submit()}}
+</form>
+
+{% endblock content %}

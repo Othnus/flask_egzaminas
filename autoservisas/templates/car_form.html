@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="post" action="#">
+  {{form.hidden_tag()}}
+
+  <div class="form-group">
+    {{form.marke.label(class="form-control-label")}} 
+    {% if car %}
+        {{form.marke(class="form-control", value=car.marke)}}
+    {% else %}
+        {{form.marke(class="form-control")}}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{form.model.label(class="form-control-label")}}
+    {% if car %}
+        {{form.model(class="form-control", value=car.model)}}
+    {% else %}
+        {{form.model(class="form-control")}}
+    {% endif %}
+  </div>
+  
+  <div class="form-group">
+    {{form.year.label(class="form-control-label")}}
+    {% if car %}
+        {{form.year(class="form-control", value=car.year)}}
+    {% else %}
+        {{form.year(class="form-control")}}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{form.engine.label(class="form-control-label")}}
+    {% if car %}
+        {{form.engine(class="form-control", value=car.engine)}}
+    {% else %}
+        {{form.engine(class="form-control")}}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{form.registration.label(class="form-control-label")}}
+    {% if car %}
+        {{form.registration(class="form-control", value=car.registration)}}
+    {% else %}
+        {{form.registration(class="form-control")}}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{form.vin.label(class="form-control-label")}}
+    {% if car %}
+        {{form.vin(class="form-control", value=car.vin)}}
+    {% else %}
+        {{form.vin(class="form-control")}}
+    {% endif %}
+  </div>
+
+  {{form.submit(class="btn btn-outline-primary")}}
+</form>
+
+{% endblock content %}
